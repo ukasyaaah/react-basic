@@ -1,14 +1,20 @@
 export default function HelloWorld() {
+  const txt = {
+    props: "Heii World",
+    miwa: "Heii Miwa",
+  };
   return (
     <>
-      <h1>Hello World</h1>
-      <p>Selamat Belajar ReactJS dari Ukhasyah</p>
+      <HeaderHelloWorld props="Hello World" />
+
+      {/* Spread Syntax */}
+      <HeaderHelloWorld {...txt} />
+      <ParagraphHelloWorld />
     </>
   );
 }
 
-export function HeaderHelloWorld() {
-  const text = "Hello World";
+export function HeaderHelloWorld({ props = "Ups, Lupa kasih teks" }) {
   return (
     <>
       <h1
@@ -18,19 +24,17 @@ export function HeaderHelloWorld() {
           fontFamily: "sans-serif",
         }}
       >
-        {text}
+        {props.toUpperCase()}
       </h1>
     </>
   );
 }
 export function ParagraphHelloWorld() {
-  
   const text = "Selamat Belajar ReactJS dari Ukhasyah";
   const style = {
     fontStyle: "italic",
     fontFamily: "sans-serif",
   };
-
 
   return (
     <>
