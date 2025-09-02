@@ -1,14 +1,15 @@
-import { Todo } from "./Todo";
+import { TodoAndLogic } from "./Todo";
+
 
 export default function TodoList() {
   return (
     <ul>
-      <Todo text={"Belajar HTML"} isCompleted={true} />
-      <Todo text={"Belajar CSS"} isCompleted={true} />
-      <Todo text={"Belajar Tailwind"} isCompleted={true} />
-      <Todo text={"Belajar JS"} isCompleted={true} />
-      <Todo text={"Belajar Vue"} isCompleted={false} />
-      <Todo text={"Belajar Next.js"} isCompleted={false} />
+      <TodoAndLogic text={"Belajar HTML"} isCompleted={true} isDeleted={true} />
+      <TodoAndLogic text={"Belajar CSS"} isCompleted={true} />
+      <TodoAndLogic text={"Belajar Tailwind"} isCompleted={true} />
+      <TodoAndLogic text={"Belajar JS"} isCompleted={true} />
+      <TodoAndLogic text={"Belajar Vue"} isCompleted={false} />
+      <TodoAndLogic text={"Belajar Next.js"} isCompleted={false} />
     </ul>
   );
 }
