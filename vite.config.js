@@ -7,9 +7,10 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        index: "index.html",
-        hello: "hello-world.html",
-        todo: "todolist.html",
+        index: "/index.html",
+        hello: "/hello-world.html",
+        todo: "/todolist.html",
+        table: "/table.html",
       },
     },
   },
