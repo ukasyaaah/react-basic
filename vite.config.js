@@ -12,6 +12,7 @@ export default defineConfig({
         todo: "/todolist.html",
         table: "/table.html",
         contact: "/contact.html",
+        task: "/task.html",
       },
     },
   },
