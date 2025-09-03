@@ -1,6 +1,6 @@
+import { useImmerReducer } from "use-immer";
 import NoteForm from "./NoteForm";
 import NoteList from "./NoteList";
-import { useReducer } from "react";
 
 let id = 0;
 const initialNote = [
@@ -11,34 +11,26 @@ const initialNote = [
   { id: id++, text: "learn Vue", done: false },
 ];
 
-function notesReducer(notes, action) {
-  switch (action.type) {
-    case "ADD_NOTE":
-      return [
-        ...notes,
-        {
-          id: id++,
-          text: action.text,
-          done: false,
-        },
-      ];
+function notesReducer(draft, action) {
+  if (action.type === "ADD_NOTE") {
+    draft.push({
+      id: id++,
+      text: action.text,
+      done: false,
+    });
+  } else if (action.type === "CHANGE_NOTE") {
+    const index = draft.findIndex((note) => note.id === action.id);
 
-    case "CHANGE_NOTE":
-      return notes.map((note) =>
-        note.id === action.id
-          ? { ...note, text: action.text, done: action.done }
-          : note
-      );
-
-    case "DELETE_NOTE":
-      return notes.filter((note) => note.id !== action.id);
-    default:
-      return notes;
+    draft[index].text = action.text;
+    draft[index].done = action.done;
+  } else if (action.type === "DELETE_NOTE") {
+    const index = draft.findIndex((note) => note.id === action.id);
+    draft.splice(index, 1);
   }
 }
 
 export default function NoteApp() {
-  const [notes, dispatch] = useReducer(notesReducer, initialNote);
+  const [notes, dispatch] = useImmerReducer(notesReducer, initialNote);
 
   function handleAddNote(text) {
     dispatch({
