@@ -11,6 +11,7 @@ export default defineConfig({
         hello: "/hello-world.html",
         todo: "/todolist.html",
         table: "/table.html",
+        contact: "/contact.html",
       },
     },
   },
