@@ -18,6 +18,12 @@ export default function Task() {
     setItem("");
   }
 
+  function deleteItem(index) {
+    setItems((draft) => {
+      draft.splice(index, 1);
+    });
+  }
+
   return (
     <section>
       <h1>Create Taks</h1>
@@ -29,7 +35,9 @@ export default function Task() {
       <h1>List Taks</h1>
       <ul>
         {items.map((item, index) => (
-          <li key={index}>{item} </li>
+          <li key={index} onClick={() => deleteItem(index)}>
+            {item}
+          </li>
         ))}
       </ul>
     </section>
