@@ -13,6 +13,7 @@ export default defineConfig({
         table: "/table.html",
         contact: "/contact.html",
         task: "/task.html",
+        counter: "/counter.html",
       },
     },
   },

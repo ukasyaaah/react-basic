@@ -1,9 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import Task from "./Task";
+import Counter from "./Counter";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Task />
+    <Counter />
+    <hr />
+    <Counter />
   </StrictMode>
 );
