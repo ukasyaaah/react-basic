@@ -19,6 +19,7 @@ export default defineConfig({
         timer: "/timer.html",
         guestbook: "/guestbook.html",
         product: "/product.html",
+        online: "/online.html",
       },
     },
   },
